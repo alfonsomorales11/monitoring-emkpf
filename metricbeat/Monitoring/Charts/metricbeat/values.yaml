@@ -1,0 +1,4 @@
+metricbeat:
+  name: metricbeat
+  namespace: kube-system
+  

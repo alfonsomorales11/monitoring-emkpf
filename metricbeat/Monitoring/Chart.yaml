@@ -1,0 +1,19 @@
+apiVersion: v2
+name: Monitoring
+description:
+  Monitoring Chart. It has fluentd & Prometheus for monitoring purposes.
+  # - "FluentD Subchart. Custom configuration for the logs collection."
+version: "1.2.0"
+type: application
+# dependencies:
+    # repository: TODO: Not subchart repo configured yet.
+  # - name: prometheus
+  #   version: "2.37.6"
+    # repository: TODO: Not subchart repo configured yet.
+  # - name: metricbeat
+  #   version: "7.16.1"
+    # repository: TODO: Not subchart repo configured yet.
+icon: https://github.com/fluent/fluentd-docs-gitbook/blob/53020426cdcfcb5a5f722031838ee1cb95b5a7a2/images/logo/Fluentd_horizontal.png?raw=true
+maintainers:
+  - name: Isaí Alejandro
+    email: isai.alejandro@softtek.com

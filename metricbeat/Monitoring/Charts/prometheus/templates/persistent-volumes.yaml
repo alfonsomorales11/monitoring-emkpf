@@ -1,0 +1,11 @@
+# -- This PersistentVolumeClaim file must be applied MANUALLY -- #
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: prometheus-data-volume
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 15Gi

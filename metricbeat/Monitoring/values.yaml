@@ -1,0 +1,40 @@
+global:
+  namespace: kube-system
+  containers:
+    env:
+      elastic:
+        host:  "qa-c7e6f8.es.us-east-1.aws.found.io"
+        port: "9243"
+        scheme: "https"
+        user: "elastic"
+        password: "9siHTk28dVBwWeIYDYNOv2kW"
+fluentd:
+  name: fluentd-elasticsearch
+  namespace: kube-system
+  k8sAppName: fluentd-logging
+  serviceAccount:
+    create: true
+    k8sAppName: fluentd-logging
+  spec:
+    tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        effect: NoSchedule
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+  containers:
+    env:
+      fluent:
+        elastic:
+          image: fluent/fluentd-kubernetes-daemonset:v1-debian-elasticsearch
+          sslVerify: "true"
+          sslVersion: "TLSv1_2"
+          systemdConf: "disable"
+        terminationGracePeriodSeconds: 30
+        resources:
+          limits:
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
+        configMap:
+          name: fluentd

@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: metricbeat-deployment-config
+  namespace: kube-system
+  labels:
+    k8s-app: metricbeat
+data:
+  metricbeat.yml: |-
+    metricbeat.config.modules:
+      # Mounted `metricbeat-deployment-modules` configmap:
+      path: ${path.config}/modules.d/*.yml
+      # Reload module configs as they change:
+      reload.enabled: true
+    processors:
+      - add_cloud_metadata:
+    cloud.id: ${ELASTIC_CLOUD_ID}
+    cloud.auth: ${ELASTIC_CLOUD_AUTH}
+    # setup.dashboards.enabled: true
+    output.elasticsearch:
+      hosts: ["http://192.168.56.1:9200"]
+      username: ${ELASTICSEARCH_USERNAME}
+      password: ${ELASTICSEARCH_PASSWORD}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: metricbeat-deployment-modules
+  namespace: kube-system
+  labels:
+    k8s-app: metricbeat
+data:
+  prometheus.yml: |-
+    - module: prometheus
+      metricsets: ["remote_write"]
+      host: "0.0.0.0"
+      port: "9201"
+# - module: prometheus
+#   period: 10s
+#   metricsets: ["collector"]
+#   hosts: ["10.0.33.159:9090"]
+#   metrics_path: /metrics
+
+
+
+  
+
+
+
+
+    # metricbeat.modules:
+    # - module: prometheus
+    #     metricsets:
+    #       - collector
+    #     enabled: true
+    #     period: 15s
+    #     hosts: ["10.244.0.144:9090"]
+    #   output.elasticsearch:
+    #     hosts: ['${ELASTICSEARCH_HOST:elasticsearch}:${ELASTICSEARCH_PORT:9243}']
+    #     username: ${ELASTICSEARCH_USERNAME}
+    #     password: ${ELASTICSEARCH_PASSWORD}
+
+

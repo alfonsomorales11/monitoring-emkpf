@@ -1,0 +1,10 @@
+apiVersion: v2
+name: MetricBeat-Elastic
+description: "MetricBeat Chart.It Work as a data adapter."
+version: "1.1.0"
+type: application
+icon: https://github.com/fluent/fluentd-docs-gitbook/blob/53020426cdcfcb5a5f722031838ee1cb95b5a7a2/images/logo/Fluentd_horizontal.png?raw=true
+maintainers:
+  - name: Isaí Alejandro
+    email: isai.alejandro@softtek.com
+

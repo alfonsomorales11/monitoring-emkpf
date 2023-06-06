@@ -1,0 +1,9 @@
+apiVersion: v2
+name: prometheus
+description: "Prometheus Subchart. Custom configuration to pass metrics to MetricBeat."
+version: "1.1.0"
+type: application
+icon: https://user-images.githubusercontent.com/27723643/60448708-1104f400-9c1e-11e9-80ac-308939f15a03.png
+maintainers:
+  - name: Isaí Alejandro
+    email: isai.alejandro@softtek.com
