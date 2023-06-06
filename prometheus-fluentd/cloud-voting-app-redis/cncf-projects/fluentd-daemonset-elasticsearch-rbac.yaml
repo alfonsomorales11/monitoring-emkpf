@@ -67,7 +67,7 @@ spec:
           - name: FLUENTD_SYSTEMD_CONF
             value: 'disable'
           - name:  FLUENT_ELASTICSEARCH_HOST
-            value: "192.168.56.1"
+            value: "ec2-35-172-51-69.compute-1.amazonaws.com"
           - name:  FLUENT_ELASTICSEARCH_PORT
             value: "9200"
           - name: FLUENT_ELASTICSEARCH_SCHEME
@@ -85,7 +85,7 @@ spec:
           - name: FLUENT_ELASTICSEARCH_USER
             value: "elastic"
           - name: FLUENT_ELASTICSEARCH_PASSWORD
-            value: "passwords1"
+            value: "Re9OOK6gkupaN4DR"
         resources:
           limits:
             memory: 200Mi

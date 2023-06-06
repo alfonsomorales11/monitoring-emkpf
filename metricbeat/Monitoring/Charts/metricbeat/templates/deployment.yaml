@@ -30,7 +30,7 @@ spec:
         ]
         env:
         - name: ELASTICSEARCH_HOST
-          value: "192.168.56.1"
+          value: "ec2-35-172-51-69.compute-1.amazonaws.com"
         - name: ELASTICSEARCH_SCHEME
           value: "http"
         - name: ELASTICSEARCH_PORT
@@ -38,7 +38,7 @@ spec:
         - name: ELASTICSEARCH_USERNAME
           value: "elastic"
         - name: ELASTICSEARCH_PASSWORD
-          value: "passwords1"
+          value: "Re9OOK6gkupaN4DR"
         - name: NODE_NAME
           valueFrom:
             fieldRef:

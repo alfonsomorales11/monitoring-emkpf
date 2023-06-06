@@ -18,7 +18,7 @@ data:
     cloud.auth: ${ELASTIC_CLOUD_AUTH}
     # setup.dashboards.enabled: true
     output.elasticsearch:
-      hosts: ["http://192.168.56.1:9200"]
+      hosts: ["http://ec2-35-172-51-69.compute-1.amazonaws.com:9200"]
       username: ${ELASTICSEARCH_USERNAME}
       password: ${ELASTICSEARCH_PASSWORD}
 ---

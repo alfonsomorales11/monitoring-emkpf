@@ -1,3 +1,30 @@
+# Modify values for elastic authentication:
+```
+(Metricbeat configmap)
+./metricbeat/Monitoring/Charts/metricbeat/templates/config-map.yaml :
+
+    hosts: ["http://ec2-35-172-51-69.compute-1.amazonaws.com:9200"]
+
+(Metricbeat deployment)
+./monitoring-emkpf/metricbeat/Monitoring/Charts/metricbeat/templates/deployment.yaml
+
+    ELASTICSEARCH_HOST
+    ELASTICSEARCH_SCHEME
+    ELASTICSEARCH_PORT
+    ELASTICSEARCH_USERNAME
+    ELASTICSEARCH_PASSWORD
+
+(Fluentd daemonset)
+./monitoring-emkpf/prometheus-fluentd/cloud-voting-app-redis/cncf-projects/fluentd-daemonset-elasticsearch-rbac.yaml
+
+    FLUENT_ELASTICSEARCH_HOST
+    FLUENT_ELASTICSEARCH_PORT
+    FLUENT_ELASTICSEARCH_SCHEME
+    FLUENT_ELASTICSEARCH_SSL_VERIFY
+    FLUENT_ELASTICSEARCH_USER
+    FLUENT_ELASTICSEARCH_PASSWORD
+```
+
 ## 1 - Deploy kibana and elasticsearch cluster
 
 ```
@@ -76,7 +103,7 @@ helm install prometheus -n kube-system prometheus-community/prometheus -f ./prom
 
 ## 7 - Deploy Python app
 ```
-kubectl create -f ./prometheus-fluentd/cloud-voting-app-redis/cncf-projects/cloud-vote-all-in-one-redis-aks-prometheus.yaml
+kubectl create -f ./prometheus-fluentd/cloud-voting-app-redis/cncf-projects/cloud-vote-all-in-one-redis-aks-prometheus.yaml --namespace default
 ```
 
 ## 8 - Delete all

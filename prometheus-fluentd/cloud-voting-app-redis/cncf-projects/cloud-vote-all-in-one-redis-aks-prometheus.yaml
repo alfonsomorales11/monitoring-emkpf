@@ -75,7 +75,7 @@ kind: Service
 metadata:
   name: cloud-vote-front
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
   - port: 80
   selector:
