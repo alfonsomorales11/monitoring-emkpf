@@ -81,6 +81,8 @@ kubectl create -f ./prometheus-fluentd/cloud-voting-app-redis/cncf-projects/clou
 
 ## 8 - Delete all
 ```
+kubectl delete configmap fluentd-conf -n kube-system
+kubectl delete -f ./prometheus-fluentd/cloud-voting-app-redis/cncf-projects/configMap.yaml
 kubectl delete -f ./prometheus-fluentd/cloud-voting-app-redis/cncf-projects/fluentd-daemonset-elasticsearch-rbac.yaml
 helm delete metricbeat
 helm delete prometheus -n kube-system
