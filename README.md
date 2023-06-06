@@ -74,7 +74,7 @@ helm install metricbeat ./metricbeat/Monitoring/Charts/metricbeat
 helm install prometheus -n kube-system prometheus-community/prometheus -f ./prometheus-fluentd/cloud-voting-app-redis/cncf-projects/prometheus_custom.yaml
 ```
 
-# 7 - Deploy Python app
+## 7 - Deploy Python app
 ```
 kubectl create -f ./prometheus-fluentd/cloud-voting-app-redis/cncf-projects/cloud-vote-all-in-one-redis-aks-prometheus.yaml
 ```
